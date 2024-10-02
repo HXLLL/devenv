@@ -1,0 +1,4 @@
+#
+# Environments
+#
+export EDITOR=vim

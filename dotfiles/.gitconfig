@@ -1,0 +1,23 @@
+[user]
+	email = xiaoloonghuang@gmail.com
+	name = Xiaolong Huang
+[core]
+	editor = vim
+	ignorecase = false
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[diff]
+	tool = vimdiff
+[color]
+	ui = auto
+[alias]
+	ls = "!f() { git log $1 --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cgreen\\\\ [%ae,%ar]\" --decorate --graph; }; f"
+[credential]
+	helper = store
+[pull]
+	ff = only
