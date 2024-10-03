@@ -9,7 +9,7 @@ function init() {
     fi
 
     sudo apt update
-    sudo apt install -y ca-certificates gpg wget
+    sudo apt install -y ca-certificates gpg wget curl
 }
 
 function install_latest_cmake() {
@@ -40,12 +40,9 @@ function install_latest_git() {
 
 function install_zsh() {
     sudo apt install -y zsh
-
 }
 
 function configure_zsh() {
-    sudo chsh "$USER" -s /usr/bin/zsh
-
     # install zim
     wget -nv -O - https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
     # install zoxide
@@ -66,12 +63,52 @@ function configure_vim() {
     cp ./dotfiles/.vimrc ${HOME}/.vimrc
 }
 
+CONFIGURE_CMAKE=0
+CONFIGURE_GIT=0
+CONFIGURE_VIM=0
+CONFIGURE_ZSH=0
+
+while [[ $# -gt 0 ]]; do
+    case $1 in 
+        cmake)
+            CONFIGURE_CMAKE=1
+            shift
+            ;;
+        git)
+            CONFIGURE_GIT=1
+            shift
+            ;;
+        vim)
+            CONFIGURE_VIM=1
+            shift
+            ;;
+        zsh)
+            CONFIGURE_ZSH=1
+            shift
+            ;;
+        *)
+            shift
+            ;;
+    esac
+done
+
 init
 
-install_latest_cmake
-install_latest_git
-install_zsh
+if [ ${CONFIGURE_CMAKE} -eq 1 ]; then
+    install_latest_cmake
+fi
 
-configure_zsh
-configure_git
-configure_vim
+if [ ${CONFIGURE_GIT} -eq 1 ]; then
+    install_latest_git
+    configure_git
+fi
+
+if [ ${CONFIGURE_VIM} -eq 1 ]; then
+    configure_vim
+fi
+
+if [ ${CONFIGURE_ZSH} -eq 1 ]; then
+    install_zsh
+    configure_zsh
+fi
+
