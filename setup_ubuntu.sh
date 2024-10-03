@@ -40,7 +40,7 @@ function install_latest_git() {
 
 function install_latest_gcc() {
     if [ ${UBUNTU_CODENAME} == "noble" ]; then
-        sudo apt install gcc-14
+        sudo apt install -y gcc-14
     else
         echo "unsupported distribution"
     fi
@@ -71,13 +71,26 @@ function configure_vim() {
     cp ./dotfiles/.vimrc ${HOME}/.vimrc
 }
 
+function configure_all() {
+    CONFIGURE_CMAKE=1
+    CONFIGURE_GIT=1
+    CONFIGURE_VIM=1
+    CONFIGURE_ZSH=1
+    CONFIGURE_GCC=1
+}
+
 CONFIGURE_CMAKE=0
 CONFIGURE_GIT=0
 CONFIGURE_VIM=0
 CONFIGURE_ZSH=0
+CONFIGURE_GCC=0
 
 while [[ $# -gt 0 ]]; do
     case $1 in 
+	all)
+            configure_all
+	    shift
+	    ;;
         cmake)
             CONFIGURE_CMAKE=1
             shift

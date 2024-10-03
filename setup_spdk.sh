@@ -23,7 +23,7 @@ function install_spdk() {
     cd ${WORKSPACE}
 	git clone https://github.com/spdk/spdk.git --recursive --depth=1
 	cd spdk
-	# sudo -E -H ./scripts/pkgdep.sh --all
+	sudo -E -H ./scripts/pkgdep.sh --all
 
     activate="/var/spdk/dependencies/pip/bin/activate"
 
