@@ -38,6 +38,14 @@ function install_latest_git() {
     sudo apt install -y git
 }
 
+function install_latest_gcc() {
+    if [ ${UBUNTU_CODENAME} == "noble" ]; then
+        sudo apt install gcc-14
+    else
+        echo "unsupported distribution"
+    fi
+}
+
 function install_zsh() {
     sudo apt install -y zsh
 }
@@ -86,6 +94,10 @@ while [[ $# -gt 0 ]]; do
             CONFIGURE_ZSH=1
             shift
             ;;
+        gcc)
+            CONFIGURE_GCC=1
+            shift
+            ;;
         *)
             shift
             ;;
@@ -112,3 +124,6 @@ if [ ${CONFIGURE_ZSH} -eq 1 ]; then
     configure_zsh
 fi
 
+if [ ${CONFIGURE_GCC} -eq 1 ]; then
+    install_latest_gcc
+fi

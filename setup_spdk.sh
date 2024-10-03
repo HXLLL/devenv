@@ -15,24 +15,31 @@ function parse_args() {
 	done
 }
 
+function prepare() {
+    sudo apt update
+}
+
 function install_spdk() {
+    cd ${WORKSPACE}
 	git clone https://github.com/spdk/spdk.git --recursive --depth=1
 	cd spdk
-	sudo ./scripts/pkgdep.sh --all
+	# sudo -E -H ./scripts/pkgdep.sh --all
+
+    activate="/var/spdk/dependencies/pip/bin/activate"
 
 	./configure --with-rdma --with-shared
-	make -j$(nproc)
-	sudo make install
+	. $activate && make -j$(nproc)
+	sudo -E -H bash -c ". $activate && make install"
 }
 
 function configure_spdk() {
-	sudo tee -a /etc/modprobe.d/spdk.conf <<-EOF
+    cd ${WORKSPACE}/spdk
+	sudo tee -a /etc/security/limits.conf <<-EOF
 		* soft memlock unlimited
 		* hard memlock unlimited
 	EOF
 
-	ulimit -l unlimited
-	ulimit -Hl unlimited
+    sudo prlimit --pid=$$ --memlock=unlimited:unlimited
 
 	sudo scripts/setup.sh
 }
@@ -41,7 +48,7 @@ WORKSPACE="${HOME}"
 
 parse_args
 
-cd ${WORKSPACE}
+prepare
 
 install_spdk
 configure_spdk
