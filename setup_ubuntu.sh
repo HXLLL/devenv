@@ -38,6 +38,11 @@ function install_latest_git() {
     sudo apt install -y git
 }
 
+function configure_c() {
+    install_latest_gcc
+    sudo apt install clang-format
+}
+
 function install_latest_gcc() {
     if [ ${UBUNTU_CODENAME} == "noble" ]; then
         sudo apt install -y gcc-14
