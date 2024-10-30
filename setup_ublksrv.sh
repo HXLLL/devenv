@@ -9,3 +9,5 @@ cd ublksrv
 autoreconf
 ./configure 
 make -j$(nproc)
+sudo make install
+sudo ldconfig

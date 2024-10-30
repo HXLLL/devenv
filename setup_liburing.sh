@@ -8,3 +8,4 @@ cd liburing
 ./configure --cc=gcc --cxx=g++
 make -j$(nproc)
 sudo make install
+sudo ldconfig
