@@ -9,7 +9,7 @@ function init() {
     fi
 
     sudo apt update
-    sudo apt install -y ca-certificates gpg wget curl
+    sudo apt install -y ca-certificates gpg wget curl meson pkg-config
 }
 
 function install_latest_cmake() {

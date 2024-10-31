@@ -7,6 +7,7 @@ function setup_libnvme {
     meson setup .build
     meson compile -C .build
     meson install -C .build
+    sudo ldconfig
 }
 
 function setup_nvme_cli {
@@ -19,3 +20,6 @@ function setup_nvme_cli {
 }
 
 WORKSPACE="${HOME}"
+
+setup_libnvme
+setup_nvme_cli
