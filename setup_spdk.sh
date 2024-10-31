@@ -21,15 +21,13 @@ function prepare() {
 
 function install_spdk() {
     cd ${WORKSPACE}
-	git clone https://github.com/spdk/spdk.git --recursive --depth=1
+	git clone https://github.com/HXLLL/spdk.git --recursive
 	cd spdk
 	sudo -E -H ./scripts/pkgdep.sh --all
 
-    activate="/var/spdk/dependencies/pip/bin/activate"
-
-	./configure --with-rdma --with-shared
-	. $activate && make -j$(nproc)
-	sudo -E -H bash -c ". $activate && make install"
+	./configure --with-rdma --with-shared --with-ublk
+	make -j$(nproc)
+	sudo make install
 }
 
 function configure_spdk() {
