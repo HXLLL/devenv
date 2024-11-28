@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sudo -s
 cd $HOME
 sudo apt install dwarves libncurses-dev libelf-dev
 wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.4.43.tar.gz
