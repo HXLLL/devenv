@@ -9,7 +9,8 @@ function init() {
     fi
 
     sudo apt update
-    sudo apt install -y ca-certificates gpg wget curl meson pkg-config
+    sudo apt install -y ca-certificates gpg wget curl pkg-config python3-pip
+    sudo pip3 install meson ninja
 }
 
 function install_latest_cmake() {
@@ -56,6 +57,8 @@ function install_zsh() {
 }
 
 function configure_zsh() {
+    sudo chsh $USER -s /usr/bin/zsh
+
     # install zim
     wget -nv -O - https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
     # install zoxide
