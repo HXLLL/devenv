@@ -23,7 +23,9 @@ sed -i -e '/^CONFIG_LOCALVERSION=/c\CONFIG_LOCALVERSION="-hxl"' \
 #
 make -j$(nproc) bzImage
 make -j$(nproc) modules
-sudo make modules_install -j$(nproc)
-sudo make install
+
+echo "TODO: manually update the default boot entry in /etc/default/grub"
+# sudo make modules_install -j$(nproc)
+# sudo make install
 
 echo "TODO: manually update the default boot entry in /etc/default/grub"
