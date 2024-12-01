@@ -3,7 +3,7 @@
 WORKSPACE=$HOME
 
 cd $WORKSPACE
-sudo apt install -y perl make automake autoconf m4 libtool-bin g++
+sudo apt install -y perl make automake autoconf m4 libtool g++
 git clone -b 3.10 https://github.com/Mellanox/sockperf
 
 cd sockperf

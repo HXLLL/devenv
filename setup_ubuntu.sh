@@ -10,7 +10,7 @@ function init() {
 
     sudo apt update
     sudo apt install -y ca-certificates gpg wget curl pkg-config python3-pip
-    sudo pip3 install meson ninja
+    sudo apt install python3-mesonpy
 }
 
 function install_latest_cmake() {
