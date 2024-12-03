@@ -24,9 +24,10 @@ function install_spdk() {
 	git clone https://github.com/HXLLL/spdk.git --recursive
 	cd spdk
     git checkout v24.09
-	sudo -E -H ./scripts/pkgdep.sh --all
+	sudo -E -H ./scripts/pkgdep.sh
 
-	./configure --with-rdma --with-shared --with-ublk
+    sudo modprobe ublk_srv
+	./configure --with-shared --with-ublk
 	make -j$(nproc)
 	sudo make install
 }
