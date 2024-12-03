@@ -23,6 +23,7 @@ function install_spdk() {
     cd ${WORKSPACE}
 	git clone https://github.com/HXLLL/spdk.git --recursive
 	cd spdk
+    git checkout v24.09
 	sudo -E -H ./scripts/pkgdep.sh --all
 
 	./configure --with-rdma --with-shared --with-ublk
