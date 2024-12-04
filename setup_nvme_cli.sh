@@ -20,6 +20,7 @@ function setup_nvme_cli {
     git clone https://github.com/linux-nvme/nvme-cli
     cd nvme-cli
     git checkout $VERSION_NVME_CLI
+    rm -rf .build
     meson setup .build
     meson compile -C .build
     meson install -C .build
