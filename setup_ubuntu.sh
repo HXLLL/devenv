@@ -13,7 +13,7 @@ function init() {
     if [[ ${UBUNTU_CODENAME} == "noble" ]]; then
         sudo apt install -y python3-mesonpy
     else
-        sudo pip install meson
+        sudo pip install meson ninja
     fi
 }
 
