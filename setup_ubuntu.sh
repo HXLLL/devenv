@@ -10,7 +10,11 @@ function init() {
 
     sudo apt update
     sudo apt install -y ca-certificates gpg wget curl pkg-config python3-pip
-    sudo apt install python3-mesonpy
+    if [[ ${UBUNTU_CODENAME} == "noble" ]]; then
+        sudo apt install -y python3-mesonpy
+    else
+        sudo pip install meson
+    fi
 }
 
 function install_latest_cmake() {

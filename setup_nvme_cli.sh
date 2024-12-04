@@ -8,6 +8,7 @@ function setup_libnvme {
     git clone https://github.com/linux-nvme/libnvme
     cd libnvme
     git checkout $VERSION_LIBNVME
+    rm -rf .build
     meson setup .build
     meson compile -C .build
     meson install -C .build
