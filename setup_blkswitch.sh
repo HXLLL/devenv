@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd $HOME
-sudo apt install dwarves libncurses-dev libelf-dev flex bison
+sudo apt install -y dwarves libncurses-dev libelf-dev flex bison
 wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.4.43.tar.gz
 tar xzvf linux-5.4.43.tar.gz
 
