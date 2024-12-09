@@ -15,7 +15,7 @@ make olddefconfig
 
 sed -i -e '/^CONFIG_LOCALVERSION=/c\CONFIG_LOCALVERSION="-hxl"' \
        -e '/I10_HOST/c\CONFIG_I10_HOST=m' \
-       -e '/I10_HOST/c\CONFIG_I10_TARGET=m' \
+       -e '/I10_TARGET/c\CONFIG_I10_TARGET=m' \
        -e '/CONFIG_SYSTEM_TRUSTED_KEYS=/c\CONFIG_SYSTEM_TRUSTED_KEYS=""' .config
 
 #
