@@ -116,3 +116,8 @@ alias dkv="docker volume"
 # autojump
 #
 alias j=z
+alias pp="perf probe"
+alias ppl="perf probe -L"
+alias prp="perf report"
+alias prc="perf record"
+alias psc="perf script"
