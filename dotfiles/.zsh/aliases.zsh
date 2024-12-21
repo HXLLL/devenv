@@ -46,6 +46,7 @@ alias gst='git status'
 alias gsw='git switch'
 alias gsm='git submodule'
 alias gt='git tag'
+alias gupd='git add --all && git commit -m update && git push'
 
 #
 # Conda
@@ -121,3 +122,10 @@ alias ppl="perf probe -L"
 alias prp="perf report"
 alias prc="perf record"
 alias psc="perf script"
+
+#
+# other
+#
+
+alias s='sudo'
+alias smi='sudo make install'
