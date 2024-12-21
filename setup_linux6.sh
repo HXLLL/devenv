@@ -7,7 +7,7 @@ cd $HOME
 
 git clone https://github.com/HXLLL/kernel-patched linux6
 
-cd kernel_patched
+cd linux6
 git checkout linux6-hxl
 mv $HOME/kernel_config .config
 
