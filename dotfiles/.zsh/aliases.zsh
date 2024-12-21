@@ -129,3 +129,5 @@ alias psc="perf script"
 
 alias s='sudo'
 alias smi='sudo make install'
+
+alias sapti='sudo apt install -y'
