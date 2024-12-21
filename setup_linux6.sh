@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt install -y dwarves libncurses-dev libelf-dev flex bison
+
 cp dotfiles/.config $HOME/kernel_config
 cd $HOME
 
