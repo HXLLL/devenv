@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-sudo apt install python3-pyelftools libnuma-dev
+sudo apt install -y python3-pyelftools libnuma-dev
 
 cd $HOME
 
