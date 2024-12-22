@@ -117,17 +117,30 @@ alias dkv="docker volume"
 # autojump
 #
 alias j=z
-alias pp="perf probe"
-alias ppl="perf probe -L"
-alias prp="perf report"
-alias prc="perf record"
-alias psc="perf script"
+
+
+#
+# perf
+#
+alias pp='perf probe'
+alias ppl='perf probe -L'
+alias ppv='perf probe -V'
+alias prp='perf report'
+alias prc='perf record'
+alias psc='perf script'
 
 #
 # other
 #
-
 alias s='sudo'
+alias mkj='make -j$(nproc)'
 alias smi='sudo make install'
+alias apti='sudo apt install -y'
+alias aptr='sudo apt remove -y'
+alias pse='pse -e'
+alias iopa='ip -o a'
 
-alias sapti='sudo apt install -y'
+#
+# nvme
+#
+alias snl='sudo nvme list'
