@@ -6,4 +6,5 @@ source $HOME/miniconda/bin/activate
 conda create -y -n default python=3.13
 conda activate default
 conda install -y -c conda-forge fire ipykernel matplotlib numpy pandas
+pip install tqdm sh
 conda init --all
