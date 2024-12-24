@@ -137,6 +137,7 @@ alias mkj='make -j$(nproc)'
 alias smi='sudo make install'
 alias apti='sudo apt install -y'
 alias aptr='sudo apt remove -y'
+alias aptar='sudo apt autoremove -y'
 alias pse='pse -e'
 alias iopa='ip -o a'
 
@@ -144,3 +145,6 @@ alias iopa='ip -o a'
 # nvme
 #
 alias snl='sudo nvme list'
+alias snda='sudo nvme disconnect-all'
+alias pyr='python -m iobench.run'
+alias rpc='./scripts/rpc.py'
